@@ -10,6 +10,10 @@ int lightValue = 0;
 int sensorMax = 1023; //Max
 int sensorMin = 0; //Min
 
+// intervalTimer writeOutputTimer(400);
+// intervalTimer readInputTimer(100);
+intervalTimer displayValuesTimer(500);
+
 void setup() 
 {
   //Serial monitor
@@ -43,6 +47,11 @@ void loop()
 {
   //Get light intensity
   lightValue = analogRead(lightSensor);
+
+  if (displayValuesTimer.expired())
+  {
+      Serial.println(lightValue);
+  }
 
   //Map reading
   lightValue = map(lightValue, sensorMin, sensorMax, 0, 255);
