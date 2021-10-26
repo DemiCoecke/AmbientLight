@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <runtimer.h>
 
 //Pins
 const int lightSensor = A0; //Light sensor
